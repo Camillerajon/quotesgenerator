@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Générateur de citations</title>
+
+	<meta charset='utf-8'>
+
+	<meta name="description" content="">
+
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<meta name="description" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<meta name="viewport" content="width=device-width" />
+
+
+
+
+</head>
+
+
+
+<body>
+
+
+	<!----Bouton démarrer qui lance la fonction getStarted via on click-->
+	<input type="button" value="Démarrer" onclick="getStarted();"></input>
+
+	<style>
+		input {
+			margin-top: 150px;
+			max-width: 700px;
+			font-size: 20px;
+			color: #7f00ff;
+		}
+	</style>
+
+
+	<p> Cliquer sur démarrer pour générer de nouvelles citations <br> ou fermer l'onglet pour quitter le programme
+
+	</p>
+
+
+
+	<style>
+		p {
+
+			padding-top: 30px;
+			color: #7f00ff;
+			margin-top: 80px;
+			max-width: 700px;
+			font-size: 20px;
+
+
+		}
+	</style>
+
+
+
+	<script>
+		function getCitation(nombre) {
+
+			var citationsDebut, citationsMilieu, citationsFin, separation;
+
+			var randomDebut, randomMilieu, randomFin, ramdomseparation;
+
+
+			//si l'utilisateur indique un nombre différent de 1 et un nombre différent de 2, message d'erreur
+			if (nombre != "1" && nombre != "2") {
+
+				alert("Vous avez oublié de remplir un champ. Merci de recommencer");
+
+			} else {
+			
+			//sinon, si le nombre rentré est 1, cela déclenche le générateur 1
+				if (nombre == "1") {
+
+
+
+					citationsDebut = ["La vie",
+						"Pour réussir il ne suffit pas de prévoir",
+						"Si vous pensez que l’aventure est dangereuse",
+						"Je me disais que pour la séduire",
+						"Parfois tu as seulement besoin de respirer",
+						"Accepte ce qui est"
+					];
+
+					separation = ["  "];
+
+					citationsMilieu = ["c'est comme une bicyclette",
+						"il ne suffit pas de prévoir",
+						"essayez la routine",
+						"je devais la faire rire",
+						"de faire confiance à la vie",
+						"laisse aller ce qui était"
+					];
+
+					citationsFin = ["il faut avancer pour ne pas perdre l'équilibre",
+						"il faut aussi savoir improviser",
+						"elle est mortelle",
+						"mais à chaque fois c’est moi qui tombais amoureux",
+						"Et de lâcher prise!",
+						"Et aie confiance en ce qui sera"
+					];
+				} else if (nombre == "2") {
+				//sinon, si le nombre est égal 2, cela déclenche le générateur 2
+
+					citationsDebut = ["Vivre ", "Remuer", "Etre", "Avoir", "Mettre", "Chercher", "Avoir", "Mettre"];
+
+					citationsMilieu = ["d'amour", "le couteau", "au bout", "les yeux", "la puce", "une aiguille", "une faim",
+						"du beurre"
+					];
+
+					citationsFin = ["et d'eau fraîche!", "dans la plaie!", "du rouleau!", " plus gros que le ventre!",
+						"à l'oreille!", "dans une botte de foin!", "de loup!", "ne tourne pas ron!d", "dans les épinards!"
+					];
+
+					separation = ["  "];
+
+
+
+				}
+
+				randomDebut = citationsDebut[Math.floor(Math.random() * citationsDebut.length)];
+
+				randomMilieu = citationsMilieu[Math.floor(Math.random() * citationsMilieu.length)];
+
+				randomFin = citationsFin[Math.floor(Math.random() * citationsFin.length)];
+				// les trois bouts de citations sont pris de façon aléatoire dans les tableaux Début, Milieu et Fin
+
+				// le résultat respecte toujours 1 bout de citationsDebut prit aléatoirement, la séparation, 1 bout de citation de citationsMilieu...etc
+				var resultat = randomDebut + separation + randomMilieu + separation + randomFin;
+
+
+
+				console.log("résultat : " + resultat);
+
+			}
+
+
+		}
+
+
+		function getStarted() {
+
+			//la variable stop est initialisée comme fausse
+			var stop = false;
+			//le programme s'exécute...
+			do {
+				var choix = Number(prompt("Tapez 1 pour le générateur n°1 ou tapez 2 pour le générateur n°2"));
+
+				//si le choix de l'utilisateur est différent de 1 et différent de 2, un message d'erreur s'affiche
+				if (choix != 1 && choix != 2) {
+
+					alert("Veuillez saisir un choix valide. Merci de recommencer");
+
+				} else {
+
+
+				//sinon, si l'utilisateur a saisi "1" ou "2", le programme lui propose de choisir le nombre de citations qu'il souhaite générer entre 1 et 5
+					var nombre = Number(prompt(
+						"Maintenant, combien de citations souhaitez-vous générer ?\n Tapez : 1, 2, 3, 4 ou 5, pour choisir le nombre de citations"
+						));
+
+
+					//si le nombre saisi est inférieur à 0 ou supérieur à 5, un message d'erreur s'affiche
+					if (nombre < 0 || nombre > 5) {
+
+
+
+						alert("Veuillez saisir un nombre valide. Merci de recommencer");
+
+
+					//si l'utilisateur ne saisit pas un nombre, un message d'erreur s'affiche
+					} else if (isNaN(nombre)) {
+					
+
+
+						alert("Veuillez saisir un nombre valide. Merci de recommencer");
+
+					} else {
+					
+					/*sinon, si l'utilisateur saisi un nombre entre 1 et 5, une nouvelle citation se génére... 
+					**la boucle déclare l'indice i, en l'initialisant à zéro et se réexécute
+					à chaque fois que i est compris entre 1 et 5, en rajoutant 1 à chaque fois que l'on réitère la boucle
+					*/
+
+						for ( var i = 0; i < nombre; i++) {
+
+							getCitation(choix);
+
+						}
+
+					}
+
+				}
+				// Demander à l'utilisateur s'il veut arrêter le programme en tapant "q"
+				stop = 'q' === prompt('Cliquer sur "ok" pour générer une nouvelle citation ou arrêter le programme en tapant (q)!');
+			} while (!stop);
+			//le programme s'arrête
+
+		}
+	</script>
+
+
+</body>
+
+
+
+</html>

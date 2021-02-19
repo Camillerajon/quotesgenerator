@@ -1,0 +1,27 @@
+.container{
+    margin-top: 80px;
+    max-width: 500px;
+    font-size: 25px;
+}
+
+.button{
+    font-family: 'Press Start 2P', cursive;
+    width: 30%;
+    height: 50px;
+    background-color:#7f00ff;
+    border: none;
+    font-size: 18px;
+}
+
+.button:hover{
+    background-color: #9a68af;
+}
+
+.button:active{
+    background-color: #dddddd;
+}
+
+
+blockquote{
+    font-family: 'Patrick Hand', cursive;
+}
